@@ -1,0 +1,39 @@
+const mongoose = require('mongoose');
+const env = require('../configs/env.config');
+
+const connectionURL = `mongodb://${env.db.host}:${env.db.port}/${env.db.name}`;
+
+mongoose.Promise = global.Promise;
+mongoose.set('debug', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('autoIndex', true);
+
+mongoose.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const db = mongoose.connection;
+
+db.on('connected', () => console.log(`Mongoose ${connectionURL}`));
+db.on('error', err => console.error(err));
+db.on('disconnected', () => console.log('mongoose is disconnected'));
+
+process.on('SIGINT', () => {
+    db.close(() => {
+        console.log('mongoose connection closed trow app terminated');
+        process.exit(0);
+    });
+});
+process.on('SIGTERM', () => {
+    db.close(() => {
+        console.log('mongoose connection closed trow app terminated');
+        process.exit(0);
+    });
+});
+process.on('SIGUSR2', () => {
+    db.close(() => {
+        console.log('mongoose connection closed trow app terminated');
+        process.exit(0);
+    });
+});
+
+
+exports.dbConnection = db;

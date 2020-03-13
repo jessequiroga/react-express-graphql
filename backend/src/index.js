@@ -1,27 +1,37 @@
 const express = require('express');
-const graphqlHTTP = require('express-graphql');
-const { buildSchema } = require('graphql');
+const { dbConnection } = require('./core/db/index.db');
 const bodyParser = require('body-parser');
-const { authMiddleware } = require('./middlewares/jwt-secret.middleware');
+const env = require('./core/configs/env.config');
+const { graphql } = require('./core/middlewares/graphql.middleware');
+const cors = require('cors');
+const { appRouter } = require('./core/api/router');
+const { validateError } = require('./core/middlewares/validate-error.middleware');
+const { authMiddleware } = require('./core/middlewares/jwt-secret.middleware');
 
+// create our express app
 const app = express();
-
+// enable body parser
 app.use(bodyParser.json());
-app.use(authMiddleware);
+// init router
+appRouter(app);
+// enable CORS
+app.use(cors());
+// enable graphql queries and mutations
+app.use('/graphql', graphql);
+// enable error validation
+app.use(validateError);
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
 
-const root = { hello: () => 'Hello world!' };
+// run server
+app.listen(env.app.port, (error) => {
+    if(error) {
+        console.error(error);
+        return;
+    }
 
+    console.log(`GraphQl http://localhost:${env.app.port}/graphql`);
+    console.log(`Server http://localhost:${env.app.port}`);
+});
 
-app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true,
-}));
-
-app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
+require('dotenv').config({`dotenv files path${envir}.env`})
+const envir = process.env.NODE_ENV
