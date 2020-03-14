@@ -6,7 +6,7 @@ const env = require('../../core/configs/env.config');
  * @param password
  * @param salt
  */
-exports.createHash =  function(password) {
+exports.createHash = (password) => {
     const salt = env.secretKeys.salt;
 
     const passHash = crypto

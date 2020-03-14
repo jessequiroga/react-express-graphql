@@ -6,7 +6,6 @@ const { graphql } = require('./shared/middlewares/graphql.middleware');
 const cors = require('cors');
 const { appRouter } = require('./core/api/router');
 const { validateError } = require('./shared/middlewares/validate-error.middleware');
-const { authMiddleware } = require('./shared/middlewares/jwt-secret.middleware');
 const passport = require('passport');
 const { jwtStrategy } = require('./shared/strategies/jwt.strategy');
 

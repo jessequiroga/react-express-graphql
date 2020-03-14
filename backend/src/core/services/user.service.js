@@ -1,4 +1,4 @@
-const {createHash} = require('../../shared/helpers/password-hash.helper');
+const { createHash } = require('../../shared/helpers/password-hash.helper');
 const { User } = require('../db/entities/user.entity');
 
 class UserService {
@@ -24,7 +24,7 @@ class UserService {
         return null;
     }
 
-    async findUserBuId(id) {
+    async findUserById(id) {
         const user = await User.findById(id);
 
         if(user) {
