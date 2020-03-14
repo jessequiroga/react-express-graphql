@@ -1,4 +1,4 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const inject = require('require-all');
 
 exports.appRouter = function (app) {

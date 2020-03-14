@@ -32,6 +32,3 @@ app.listen(env.app.port, (error) => {
     console.log(`GraphQl http://localhost:${env.app.port}/graphql`);
     console.log(`Server http://localhost:${env.app.port}`);
 });
-
-require('dotenv').config({`dotenv files path${envir}.env`})
-const envir = process.env.NODE_ENV
