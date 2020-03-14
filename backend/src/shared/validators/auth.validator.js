@@ -1,6 +1,6 @@
 const { validate, Joi } = require('express-validation');
 
-exports.signUpUserValidation = validate({
+exports.signUpValidation = validate({
     body: Joi.object({
         email: Joi
             .string()
@@ -16,7 +16,7 @@ exports.signUpUserValidation = validate({
     }),
 });
 
-exports.signInUserValidation = validate({
+exports.signInValidation = validate({
     body: Joi.object({
         email: Joi
             .string()
