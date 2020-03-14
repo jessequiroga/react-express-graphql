@@ -7,7 +7,7 @@ const dev = {
     db: {
         host: 'localhost',
         port: 27017,
-        name: 'todo',
+        name: 'test',
         user: 'test'
     },
     secretKeys: {
