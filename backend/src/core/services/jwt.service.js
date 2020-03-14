@@ -1,10 +1,8 @@
 const jwt = require('jsonwebtoken');
-const { responseText } = require('../../shared/enums/response-text.enum');
 const env = require('../configs/env.config');
 
 
 class JwtService {
-
     /**
      * generate jwt of payload
      * @return jwt
@@ -13,7 +11,6 @@ class JwtService {
     generateJwt(payload) {
         return jwt.sign(payload, env.secretKeys.jwt);
     }
-
-
 }
 
+exports.JwtService = new JwtService();

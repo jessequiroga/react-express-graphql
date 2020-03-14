@@ -13,6 +13,26 @@ class UserService {
 
         return user.toObject();
     }
+
+    async findUserByQuery(query) {
+        const user = await User.findOne(query);
+
+        if(user) {
+            return user.toObject();
+        }
+
+        return null;
+    }
+
+    async findUserBuId(id) {
+        const user = await User.findById(id);
+
+        if(user) {
+            return user.toObject();
+        }
+
+        return null;
+    }
 }
 
 exports.UserService = new UserService();
