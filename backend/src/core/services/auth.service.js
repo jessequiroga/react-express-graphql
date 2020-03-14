@@ -25,7 +25,7 @@ class AuthService {
         const user = await UserService.findUserByQuery({ email });
 
         if(!user) {
-            res.status(HttpStatus.NOT_FOUND).send(responseText['payload-required']);
+            res.status(HttpStatus.NOT_FOUND).send(responseText['user-not-found']);
             return;
         }
 

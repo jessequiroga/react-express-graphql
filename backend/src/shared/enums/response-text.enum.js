@@ -3,4 +3,5 @@ exports.responseText = {
     'password-wrong': { message: 'Password is wrong!'},
     'email-exist': { message: 'Email is already exist!'},
     'auth-error': { message: 'Authorization error, try again later.'},
+    'user-not-found': { message: 'User was not found.'},
 };
