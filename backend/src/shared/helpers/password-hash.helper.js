@@ -7,8 +7,10 @@ const env = require('../../core/configs/env.config');
  * @param salt
  */
 exports.createHash =  function(password) {
+    const salt = env.secretKeys.salt;
+
     const passHash = crypto
-        .createHmac('SHA256', env.secretKeys.salt)
+        .createHmac('SHA256', salt)
         .update(password, 'utf8')
         .digest()
         .toString('base64');
