@@ -8,10 +8,13 @@ const { appRouter } = require('./core/api/router');
 const { validateError } = require('./shared/middlewares/validate-error.middleware');
 const passport = require('passport');
 const { jwtStrategy } = require('./shared/strategies/jwt.strategy');
+const helmet = require('helmet');
 
 // create our express app
 const app = express();
 
+// enable helmet security
+app.use(helmet());
 // enable body parser
 app.use(bodyParser.json());
 // init router

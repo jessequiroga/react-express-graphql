@@ -2,12 +2,8 @@ const mongoose = require('mongoose');
 const env = require('../configs/env.config');
 
 const connectionURL = `mongodb://${env.db.host}:${env.db.port}/${env.db.name}`;
-
-mongoose.Promise = global.Promise;
-mongoose.set('debug', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('autoIndex', true);
-
 mongoose.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
@@ -34,6 +30,5 @@ process.on('SIGUSR2', () => {
         process.exit(0);
     });
 });
-
 
 exports.dbConnection = db;
