@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev:": "NODE_ENV=dev node src/index.js",
-    "dev:watch": "NODE_ENV=dev nodemon src/index.js",
-    "prod": "NODE_ENV=prod node src/index.js"
+    "dev": "cross-env NODE_ENV=dev node src/index.js",
+    "dev:watch": "cross-env NODE_ENV=dev nodemon src/index.js",
+    "prod": "cross-env NODE_ENV=prod node src/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,5 +23,7 @@
     "passport-jwt": "^4.0.0",
     "require-all": "^3.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
 }
