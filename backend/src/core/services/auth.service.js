@@ -7,6 +7,13 @@ const { createHash } = require('../../shared/helpers/password-hash.helper');
 class AuthService {
 
     async signUp({ body }, res) {
+        const isEmailExist = await this.checkEmailExist(body.email);
+
+        if(isEmailExist) {
+            res.status(HttpStatus.CONFLICT).send(responseText['email-exist']);
+            return;
+        }
+
         const createdUser = await UserService.createUser(body);
         const jwt = JwtService.generateJwt({_id: createdUser._id});
 
@@ -38,6 +45,10 @@ class AuthService {
         const inputPassHash = createHash(password);
 
         return passHash === inputPassHash;
+    }
+
+    async checkEmailExist(email) {
+        return UserService.findUserByQuery({ email })
     }
 }
 
