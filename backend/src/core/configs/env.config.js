@@ -11,7 +11,8 @@ const dev = {
         user: 'test'
     },
     secretKeys: {
-        salt: 'test'
+        salt: 'test',
+        jwt: 'test'
     }
 };
 
