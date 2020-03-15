@@ -5,7 +5,6 @@ const {
 const { UsersQuery, UserQuery } = require('./queries/user.query');
 const { UserUpdate } = require('./mutations/user.mutation');
 
-
 const RootQuery = new GraphQLObjectType({
     name: 'rootQuery',
     fields: () => ({
