@@ -1,5 +1,5 @@
 const { Strategy } = require('passport-jwt');
-const { jwtConfig } = require('../../core/configs/jwt.config');
+const { jwtConfig } = require('../configs/jwt.config');
 const { UserService } = require('../../core/services/user.service');
 const { responseText } = require('../enums/response-text.enum');
 

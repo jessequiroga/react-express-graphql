@@ -1,5 +1,5 @@
 const { ExtractJwt } = require("passport-jwt");
-const env = require('../configs/env.config');
+const env = require('./env.config');
 
 exports.jwtConfig = {
     // define a secret key for signing the jwt tokens

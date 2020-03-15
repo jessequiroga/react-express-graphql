@@ -1,13 +1,13 @@
 const express = require('express');
 const { dbConnection } = require('./core/db/index.db');
 const bodyParser = require('body-parser');
-const env = require('./core/configs/env.config');
+const env = require('./utils/configs/env.config');
 const { graphql } = require('./core/middlewares/graphql.middleware');
 const cors = require('cors');
 const { appRouter } = require('./core/api/router');
 const { validateError } = require('./core/middlewares/validate-error.middleware');
 const passport = require('passport');
-const { jwtStrategy } = require('./shared/strategies/jwt.strategy');
+const { jwtStrategy } = require('./utils/strategies/jwt.strategy');
 const helmet = require('helmet');
 
 // create our express app
