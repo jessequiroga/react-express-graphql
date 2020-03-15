@@ -39,6 +39,12 @@ class UserService {
 
         return null;
     }
+
+    async findAndUpdateUser(findQuery, updateFields, options = {}) {
+        const updatedUser = await User.findOneAndUpdate(findQuery, updateFields, options);
+
+        return updatedUser.toObject();
+    }
 }
 
 exports.UserService = new UserService();

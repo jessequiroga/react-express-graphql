@@ -1,16 +1,18 @@
 const { UserType } = require('../types/user.type');
 const { userInputType } = require('../inputTypes/user.inputType');
+const { UserService } = require('../../services/user.service');
 
 exports.UserUpdate = {
     type: UserType,
-    name: 'userMutation',
     args: {
         fields: {
             name: 'fieldsToUpdate',
-            type: userInputType,
+            type: userInputType
         }
     },
-    resolve: (_, re, res) => {
-        console.log(re, res)
+    resolve: async (_, { fields }, { user }) => {
+        const _id = user._id;
+
+        return UserService.findAndUpdateUser({ _id }, fields, { new: true });
     }
 };
