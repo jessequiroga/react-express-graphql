@@ -20,6 +20,16 @@ class UserService {
         return null;
     }
 
+    async findUsersByQuery(query) {
+        const users = await User.find(query);
+
+        if(users) {
+            return users;
+        }
+
+        return null;
+    }
+
     async findUserById(id) {
         const user = await User.findById(id);
 

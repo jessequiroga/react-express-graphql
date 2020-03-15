@@ -5,6 +5,6 @@ exports.appRouter = function (app) {
     const controllers = inject(__dirname + '/routes');
 
     for (const name in controllers) {
-        app.use(`/public/${name}`, controllers[name](Router));
+        app.use(`/api/${name}`, controllers[name](Router));
     }
 };

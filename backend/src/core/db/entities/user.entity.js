@@ -13,6 +13,11 @@ const userSchema = new Schema({
     email: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Number,
+        required: true,
+        default: new Date().getTime(),
     }
 });
 
