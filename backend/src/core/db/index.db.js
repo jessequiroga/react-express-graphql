@@ -4,7 +4,7 @@ const env = require('../../utils/configs/env.config');
 const connectionURL = `mongodb://${env.db.host}:${env.db.port}/${env.db.name}`;
 mongoose.set('useCreateIndex', true);
 mongoose.set('autoIndex', true);
-mongoose.set('useFindAndModify', false)
+mongoose.set('useFindAndModify', false);
 mongoose.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
