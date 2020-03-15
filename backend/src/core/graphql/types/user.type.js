@@ -1,6 +1,5 @@
 const {
     GraphQLObjectType,
-    GraphQLInt,
     GraphQLString,
     GraphQLID
 } = require('graphql');
@@ -18,7 +17,7 @@ exports.UsersType = new GraphQLObjectType({
             resolve: (user) => user.email,
         },
         createdAt: {
-            type: GraphQLInt,
+            type: GraphQLString,
             resolve: (user) => user.createdAt,
         },
         nickname: {
@@ -41,7 +40,7 @@ exports.UserType = new GraphQLObjectType({
             resolve: (user) => user.email,
         },
         createdAt: {
-            type: GraphQLInt,
+            type: GraphQLString,
             resolve: (user) => user.createdAt,
         },
         nickname: {
