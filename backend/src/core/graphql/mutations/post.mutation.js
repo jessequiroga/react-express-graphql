@@ -24,7 +24,7 @@ exports.PostDelete = {
             type: GraphQLID,
         }
     },
-    resolve: async (_, { id }, { user }) => {
+    resolve: async (_, { id }, user) => {
         return PostService.deletePost(id, user._id);
     }
 }
