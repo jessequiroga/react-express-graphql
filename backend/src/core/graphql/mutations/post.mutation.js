@@ -10,7 +10,7 @@ exports.PostCreate = {
             type: postCreateInput
         }
     },
-    resolve: async (_, { post }, { user }) => {
+    resolve: async (_, { post }, user) => {
         const userId = user._id;
 
         return PostService.createPost({ ...post, userId });

@@ -1,10 +1,13 @@
-const graphqlHTTP = require('express-graphql');
 const { schema } = require('../graphql/index');
+const { ApolloServer } = require('apollo-server-express');
 
-exports.graphql = graphqlHTTP(({ user }) => ({
-    graphiql: true,
-    schema,
-    context: {
-        user,
-    },
-}));
+exports.initGraphql = (app) => {
+    const graphQLServer = new ApolloServer({
+        schema,
+        context: ({ req }) => req.user,
+    });
+
+    graphQLServer.applyMiddleware({
+        app,
+    });
+}

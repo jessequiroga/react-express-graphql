@@ -2,7 +2,7 @@ const express = require('express');
 const { dbConnection } = require('./core/db/index.db');
 const bodyParser = require('body-parser');
 const env = require('./utils/configs/env.config');
-const { graphql } = require('./core/middlewares/graphql.middleware');
+const { initGraphql } = require('./core/middlewares/graphql.middleware');
 const cors = require('cors');
 const { appRouter } = require('./core/api/router');
 const { validateError } = require('./core/middlewares/validate-error.middleware');
@@ -12,6 +12,7 @@ const helmet = require('helmet');
 
 // create our express app
 const app = express();
+// create apollo server
 
 // enable helmet security
 app.use(helmet());
@@ -23,12 +24,10 @@ appRouter(app);
 app.use(cors());
 // enable passport jwt strategy
 passport.use(jwtStrategy);
-// enable graphql queries and mutations
-app.use(
-    '/graphql',
-    passport.authenticate('jwt', { session: false }),
-    graphql
-);
+// enable passport middleware
+app.use('/graphql', passport.authenticate('jwt', { session: false }));
+// enable graphql route
+initGraphql(app);
 // enable error validation
 app.use(validateError);
 

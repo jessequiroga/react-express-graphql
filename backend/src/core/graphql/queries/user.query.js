@@ -13,14 +13,14 @@ exports.UsersQuery = {
             type: usersQueryInput,
         }
     },
-    resolve: (_, { filter }, { user }) => {
+    resolve: (_, { filter }) => {
         return UserService.findUsersByQuery(filter)
     },
 };
 
 exports.UserQuery = {
     type: UserType,
-    resolve: (_, args, { user }) => {
+    resolve: (_, args, user) => {
         return user;
     },
 };

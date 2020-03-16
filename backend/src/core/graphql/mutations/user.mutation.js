@@ -9,7 +9,7 @@ exports.UserUpdate = {
             type: updateUserInput
         }
     },
-    resolve: async (_, { fields }, { user }) => {
+    resolve: async (_, { fields }, user) => {
         const _id = user._id;
 
         return UserService.findAndUpdateUser({ _id }, fields, { new: true });
