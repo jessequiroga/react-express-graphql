@@ -15,10 +15,10 @@ const app = express();
 app.use(helmet());
 // enable body parser
 app.use(bodyParser.json());
-// init router
-appRouter(app);
 // enable CORS
 app.use(cors());
+// init public router
+appRouter(app);
 // enable passport jwt strategy
 passport.use(jwtStrategy);
 // enable passport middleware
