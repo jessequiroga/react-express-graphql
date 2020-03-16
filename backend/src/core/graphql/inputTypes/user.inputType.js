@@ -17,7 +17,7 @@ exports.updateUserInput = new GraphQLInputObjectType({
 });
 
 exports.usersQueryInput = new GraphQLInputObjectType({
-    name: 'getUsersFilter',
+    name: 'getUsersInput',
     fields: {
         _id: {
             type: GraphQLID,

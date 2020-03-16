@@ -6,8 +6,7 @@ const {
 
 exports.UsersType = new GraphQLObjectType({
     name: 'Users',
-    description: 'This represents a User List',
-    fields: () => ({
+    fields: {
         id: {
             type: GraphQLID,
             resolve: (user) => user._id,
@@ -24,13 +23,12 @@ exports.UsersType = new GraphQLObjectType({
             type: GraphQLString,
             resolve: (user) => user.nickname,
         },
-    })
+    }
 });
 
 exports.UserType = new GraphQLObjectType({
     name: 'User',
-    description: 'This represents a User',
-    fields: () => ({
+    fields: {
         id: {
             type: GraphQLID,
             resolve: (user) => user._id,
@@ -47,5 +45,5 @@ exports.UserType = new GraphQLObjectType({
             type: GraphQLString,
             resolve: (user) => user.nickname,
         },
-    })
+    }
 });
