@@ -9,10 +9,7 @@ const { validateError } = require('./core/middlewares/validate-error.middleware'
 const passport = require('passport');
 const { jwtStrategy } = require('./utils/strategies/jwt.strategy');
 const helmet = require('helmet');
-
-// create our express app
 const app = express();
-// create apollo server
 
 // enable helmet security
 app.use(helmet());
