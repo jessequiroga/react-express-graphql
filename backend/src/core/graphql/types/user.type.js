@@ -60,5 +60,16 @@ exports.UserType = new GraphQLObjectType({
             type: GraphQLString,
             resolve: (user) => user.nickname,
         },
+        posts: {
+            type: GraphQLList(PostType),
+            args: {
+                pagination: {
+                    type: paginationInput
+                }
+            },
+            resolve: async (user, { pagination } = {}) => {
+                return await PostService.getPostsByQuery({userId: user._id}, pagination);
+            }
+        }
     }
 });
