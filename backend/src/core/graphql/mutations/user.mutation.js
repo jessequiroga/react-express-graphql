@@ -6,7 +6,6 @@ exports.UserUpdate = {
     type: UserType,
     args: {
         fields: {
-            name: 'fieldsToUpdate',
             type: updateUserInput
         }
     },
