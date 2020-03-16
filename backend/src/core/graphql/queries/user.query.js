@@ -2,12 +2,12 @@ const {
     GraphQLList,
 } = require('graphql');
 
-const { UsersType, UserType } = require('../types/user.type');
+const { PublicUserType, UserType } = require('../types/user.type');
 const { UserService } = require('../../services/user.service');
 const { usersQueryInput } = require('../inputTypes/user.inputType');
 
 exports.UsersQuery = {
-    type: new GraphQLList(UsersType),
+    type: new GraphQLList(PublicUserType),
     args: {
         filter: {
             type: usersQueryInput,

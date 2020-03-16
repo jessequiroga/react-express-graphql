@@ -1,11 +1,15 @@
 const {
     GraphQLObjectType,
     GraphQLString,
-    GraphQLID
+    GraphQLID,
+    GraphQLList
 } = require('graphql');
+const { PostType, PublicPostType } = require('../types/post.type');
+const { PostService } = require('../../services/post.service');
+const { paginationInput } = require('../inputTypes/pagination.unputType');
 
-exports.UsersType = new GraphQLObjectType({
-    name: 'Users',
+exports.PublicUserType = new GraphQLObjectType({
+    name: 'PublicUser',
     fields: {
         id: {
             type: GraphQLID,
@@ -23,6 +27,17 @@ exports.UsersType = new GraphQLObjectType({
             type: GraphQLString,
             resolve: (user) => user.nickname,
         },
+        posts: {
+            type: GraphQLList(PublicPostType),
+            args: {
+                pagination: {
+                    type: paginationInput
+                }
+            },
+            resolve: async (user, { pagination } = {}) => {
+                return await PostService.getPostsByQuery({userId: user._id}, pagination);
+            }
+        }
     }
 });
 
