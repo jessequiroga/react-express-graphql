@@ -1,7 +1,11 @@
-const { GraphQLInputObjectType, GraphQLString } = require('graphql');
+const {
+    GraphQLInputObjectType,
+    GraphQLString,
+    GraphQLID
+} = require('graphql');
 
-exports.userInputType = new GraphQLInputObjectType({
-    name: 'updateUserFields',
+exports.updateUserInput = new GraphQLInputObjectType({
+    name: 'updateUserInput',
     fields: {
         nickname: {
             type: GraphQLString,
@@ -11,3 +15,18 @@ exports.userInputType = new GraphQLInputObjectType({
         },
     },
 });
+
+exports.usersQueryInput = new GraphQLInputObjectType({
+    name: 'getUsersFilter',
+    fields: {
+        _id: {
+            type: GraphQLID,
+        },
+        nickname: {
+            type: GraphQLString,
+        },
+        email: {
+            type: GraphQLString,
+        },
+    }
+})

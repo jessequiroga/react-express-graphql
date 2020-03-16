@@ -1,5 +1,5 @@
 const { UserType } = require('../types/user.type');
-const { userInputType } = require('../inputTypes/user.inputType');
+const { updateUserInput } = require('../inputTypes/user.inputType');
 const { UserService } = require('../../services/user.service');
 
 exports.UserUpdate = {
@@ -7,7 +7,7 @@ exports.UserUpdate = {
     args: {
         fields: {
             name: 'fieldsToUpdate',
-            type: userInputType
+            type: updateUserInput
         }
     },
     resolve: async (_, { fields }, { user }) => {

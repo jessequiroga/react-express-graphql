@@ -6,22 +6,17 @@ const {
 
 const { UsersType, UserType } = require('../types/user.type');
 const { UserService } = require('../../services/user.service');
+const { usersQueryInput } = require('../inputTypes/user.inputType');
 
 exports.UsersQuery = {
     type: new GraphQLList(UsersType),
     args: {
-        _id: {
-            type: GraphQLID,
-        },
-        nickname: {
-            type: GraphQLString,
-        },
-        email: {
-            type: GraphQLString,
-        },
+        filter: {
+            type: usersQueryInput,
+        }
     },
-    resolve: (_, args, { user }) => {
-        return UserService.findUsersByQuery(args)
+    resolve: (_, { filter }, { user }) => {
+        return UserService.findUsersByQuery(filter)
     },
 };
 
