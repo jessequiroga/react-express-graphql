@@ -1,12 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styles from './Header.module.scss';
+import {
+    Link
+} from 'react-router-dom';
+import Toolbar from '@material-ui/core/Toolbar';
+import AppBar from '@material-ui/core/AppBar';
+import { Tabs } from '@material-ui/core';
+import Tab from '@material-ui/core/Tab';
 
-class Header extends React.Component {
+class Header extends Component {
+    readonly state: any;
+
+    constructor(props: object) {
+        super(props);
+        this.state = {value: 0};
+    }
+
+    handleChange = (event: React.ChangeEvent<{}>, value: number) => {
+        this.setState({value})
+    };
+
     render() {
+        console.log(styles);
         return (
-            <header className={styles.btn}>
-                <h1 className="title">hello</h1>
-            </header>
+            <AppBar position="static">
+                <Tabs value={this.state.value} onChange={this.handleChange} aria-label="simple tabs example">
+                    <Tab label="Item One" />
+                    <Tab label="Item Two" />
+                    <Tab label="Item Three" />
+                </Tabs>
+            </AppBar>
         )
     }
 }
