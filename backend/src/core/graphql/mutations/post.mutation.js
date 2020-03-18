@@ -1,5 +1,5 @@
 const { PostType } = require('../types/post.type');
-const { postCreateInput } = require('../inputTypes/post.inputType');
+const { postCreateInput } = require('../inputs/post.input');
 const { PostService } = require('../../services/post.service');
 const { GraphQLID } = require('graphql');
 

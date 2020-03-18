@@ -7,8 +7,8 @@ const dev = {
     db: {
         host: 'localhost',
         port: 27017,
-        name: 'test',
-        user: 'test'
+        name: 'social-network',
+        user: 'acc'
     },
     secretKeys: {
         salt: 'test',

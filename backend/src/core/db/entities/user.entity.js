@@ -1,24 +1,31 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const { UserTypeEnum } = require('../enums/user-type.enum');
 
 const userSchema = new Schema({
     nickname: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
     password: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
     email: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
+    type: {
+        type: Schema.Types.String,
+        required: true,
+        enum: UserTypeEnum,
+        default: 'UserRegistration'
+    },
     createdAt: {
-        type: Number,
+        type: Schema.Types.Number,
         required: true,
         default: new Date().getTime(),
     }
 });
 
-exports.User = mongoose.model('user', userSchema);
+exports.User = mongoose.model('User', userSchema);

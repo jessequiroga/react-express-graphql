@@ -6,7 +6,7 @@ const {
 } = require('graphql');
 const { PostType, PublicPostType } = require('../types/post.type');
 const { PostService } = require('../../services/post.service');
-const { paginationInput } = require('../inputTypes/pagination.unputType');
+const { paginationInput } = require('../inputs/pagination.input');
 
 exports.PublicUserType = new GraphQLObjectType({
     name: 'PublicUser',

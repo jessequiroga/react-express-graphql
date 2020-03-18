@@ -1,5 +1,5 @@
 const { UserType } = require('../types/user.type');
-const { updateUserInput } = require('../inputTypes/user.inputType');
+const { updateUserInput } = require('../inputs/user.input');
 const { UserService } = require('../../services/user.service');
 
 exports.UserUpdate = {

@@ -10,4 +10,4 @@ exports.initGraphql = (app) => {
     graphQLServer.applyMiddleware({
         app,
     });
-}
+};

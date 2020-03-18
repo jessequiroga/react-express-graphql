@@ -4,7 +4,7 @@ const {
 
 const { PublicUserType, UserType } = require('../types/user.type');
 const { UserService } = require('../../services/user.service');
-const { usersQueryInput } = require('../inputTypes/user.inputType');
+const { usersQueryInput } = require('../inputs/user.input');
 
 exports.UsersQuery = {
     type: new GraphQLList(PublicUserType),

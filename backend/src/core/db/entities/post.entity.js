@@ -1,28 +1,26 @@
 const mongoose = require('mongoose');
+const { relation } = require('../../../utils/helpers/relation.helper');
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
     title: {
-        type: String,
+        type: Schema.Types.String,
         required: true,
     },
     description: {
-        type: String,
+        type: Schema.Types.String,
         default: '',
     },
     images: {
-        type: [String],
+        type: [Schema.Types.String],
         default: [],
     },
     createdAt: {
-        type: Number,
+        type: Schema.Types.Date,
         required: true,
         default: new Date().getTime(),
     },
-    userId: {
-        type: String,
-        required: true,
-    }
+    userId: relation('User', { index: true })
 });
 
-exports.Post = mongoose.model('post', postSchema);
+exports.Post = mongoose.model('Post', postSchema);

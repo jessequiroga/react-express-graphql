@@ -1,0 +1,4 @@
+exports.UserTypeEnum = [
+    'UserRegistration',
+    'UserConfirmed',
+];
