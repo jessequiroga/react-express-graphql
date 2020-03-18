@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
-const SignUp = lazy(() => import('./auth/sign-up/SignUp'));
+const Login = lazy(() => import('./auth/login/Login'));
 
 export const routes = [
-    { path: "/sign-up", exact: true, component: SignUp },
+    { path: "/login", exact: true, component: Login },
 ];
