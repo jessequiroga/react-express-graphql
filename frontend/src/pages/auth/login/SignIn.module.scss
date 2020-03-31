@@ -1,0 +1,17 @@
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+
+  .loginForm {
+    display: grid;
+    align-items: center;
+    flex-direction: column;
+    grid-gap: 15px;
+    width: 100%;
+  }
+}
+
