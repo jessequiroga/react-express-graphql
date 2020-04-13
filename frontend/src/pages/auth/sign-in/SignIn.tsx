@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './SignIn.module.scss'
 import { Button, Container, TextField } from '@material-ui/core';
 import { ISignInState } from '../interfaces/sign-in.interface';
-import Auth from '../../../backend/api/Auth.api';
+import AuthService from '../../../core/services/Auth.service';
 
 class SignIn extends Component {
     readonly state: ISignInState;
@@ -16,13 +16,14 @@ class SignIn extends Component {
         }
     }
 
-    private onFormSubmit = (event: React.ChangeEvent<HTMLFormElement>): void => {
+    private onFormSubmit = async (event: React.ChangeEvent<HTMLFormElement>): Promise<void> => {
         event.preventDefault();
 
-        Auth.signIn(this.state)
-            .then(({ jwt }) => {
-                console.log(jwt)
-            });
+        try {
+            await AuthService.signIn(this.state);
+        } catch (e) {
+
+        }
     };
 
     private onValueChange = (event: React.ChangeEvent<HTMLInputElement>): void => {

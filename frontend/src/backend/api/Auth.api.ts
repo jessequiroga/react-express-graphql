@@ -3,7 +3,7 @@ import { Endpoints } from '../enums/endpoints.enum';
 import { ISignInRequest } from '../interfaces/sign-in.interface';
 import { AxiosResponse } from 'axios';
 
-class Auth {
+class AuthApi {
 
     public async signIn(body: ISignInRequest): Promise<{jwt: string}> {
         const results: AxiosResponse = await axious.post(Endpoints.Login, body);
@@ -12,4 +12,4 @@ class Auth {
     }
 }
 
-export default new Auth();
+export default new AuthApi();

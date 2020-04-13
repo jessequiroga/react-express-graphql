@@ -4,7 +4,7 @@ const { AuthService } = require('../../services/auth.service');
 module.exports = (router) => {
     const routes = router();
 
-    routes.post('/login', signUpValidation, async function (req, res) {
+    routes.post('/sign-up', signUpValidation, async function (req, res) {
         await AuthService.signUp(req, res);
     });
     routes.post('/sign-in', signInValidation, async function (req, res) {

@@ -10,7 +10,7 @@ class AuthService {
         const isEmailExist = await this.checkEmailExist(body.email);
 
         if(isEmailExist) {
-            res.status(HttpStatus.CONFLICT).send(responseText['email-exist']);
+            res.status(HttpStatus.CONFLICT).send(responseText.Email_exist);
             return;
         }
 
@@ -25,14 +25,14 @@ class AuthService {
         const user = await UserService.findUserByQuery({ email });
 
         if(!user) {
-            res.status(HttpStatus.NOT_FOUND).send(responseText['user-not-found']);
+            res.status(HttpStatus.NOT_FOUND).send(responseText.User_not_found);
             return;
         }
 
         const isPasswordCorrect = this.checkPasswordCorrect(user.password, password);
 
         if(!isPasswordCorrect) {
-            res.status(HttpStatus.BAD_REQUEST).send(responseText['password-wrong']);
+            res.status(HttpStatus.BAD_REQUEST).send(responseText.Password_wrong);
             return;
         }
 

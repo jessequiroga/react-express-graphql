@@ -18,7 +18,7 @@ class Header extends Component {
                         </IconButton>
                         Instacam
                     </Link>
-                    <Link className={styles.loginLink} to="/login">
+                    <Link className={styles.loginLink} to="/sign-in">
                         <Button variant="contained"
                                 color="default"
                                 startIcon={<ExitToAppIcon/>}>

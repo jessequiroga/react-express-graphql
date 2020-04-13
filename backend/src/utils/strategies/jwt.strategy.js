@@ -10,5 +10,5 @@ exports.jwtStrategy = new Strategy(jwtConfig, async function(jwt_payload, done) 
         return done(null, user);
     }
 
-    return done(responseText['auth-error'], null);
+    return done(responseText.Auth_error, null);
 });
