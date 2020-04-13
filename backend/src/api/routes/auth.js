@@ -1,4 +1,4 @@
-const { signUpValidation, signInValidation } = require('../../../utils/validators/auth.validator');
+const { signUpValidation, signInValidation } = require('../../utils/validators/auth.validator');
 const { AuthService } = require('../../services/auth.service');
 
 module.exports = (router) => {

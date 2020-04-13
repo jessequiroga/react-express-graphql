@@ -1,4 +1,4 @@
-const { schema } = require('../graphql/index');
+const { schema } = require('../graphql');
 const { ApolloServer } = require('apollo-server-express');
 
 exports.initGraphql = (app) => {

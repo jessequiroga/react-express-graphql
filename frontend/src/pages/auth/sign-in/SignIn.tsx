@@ -3,9 +3,11 @@ import styles from './SignIn.module.scss'
 import { Button, Container, TextField } from '@material-ui/core';
 import { ISignInState } from '../interfaces/sign-in.interface';
 import AuthService from '../../../core/services/Auth.service';
+import LoaderButton from '../../../core/components/loader-button/LoaderButton';
 
 class SignIn extends Component {
-    readonly state: ISignInState;
+    public readonly state: ISignInState;
+    private isRequested: boolean = false;
 
     constructor(props: any) {
         super(props);
@@ -13,7 +15,7 @@ class SignIn extends Component {
         this.state = {
             email: '',
             password: '',
-        }
+        };
     }
 
     private onFormSubmit = async (event: React.ChangeEvent<HTMLFormElement>): Promise<void> => {
@@ -54,6 +56,7 @@ class SignIn extends Component {
                     <Button type="submit" variant="contained">
                         SignIn
                     </Button>
+                <LoaderButton isLoading={this.isRequested} value='Kek' />
                 </form>
             </Container>
         );

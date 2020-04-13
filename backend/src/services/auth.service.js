@@ -1,8 +1,8 @@
 const { UserService } = require('./user.service');
 const { JwtService } = require('./jwt.service');
 const HttpStatus = require('http-status-codes');
-const { responseText } = require('../../utils/enums/response-text.enum');
-const { createHash } = require('../../utils/helpers/password-hash.helper');
+const { responseText } = require('../utils/enums/response-text.enum');
+const { createHash } = require('../utils/helpers/password-hash.helper');
 
 class AuthService {
 

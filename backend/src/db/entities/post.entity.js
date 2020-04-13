@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { relation } = require('../../../utils/helpers/relation.helper');
+const { relation } = require('../../utils/helpers/relation.helper');
 const { Schema } = mongoose;
 
 const postSchema = new Schema({

@@ -4,7 +4,7 @@ const {
     GraphQLID,
     GraphQLList
 } = require('graphql');
-const { PostType, PublicPostType } = require('../types/post.type');
+const { PostType, PublicPostType } = require('./post.type');
 const { PostService } = require('../../services/post.service');
 const { paginationInput } = require('../inputs/pagination.input');
 

@@ -1,6 +1,6 @@
 const { Strategy } = require('passport-jwt');
 const { jwtConfig } = require('../configs/jwt.config');
-const { UserService } = require('../../core/services/user.service');
+const { UserService } = require('../../services/user.service');
 const { responseText } = require('../enums/response-text.enum');
 
 exports.jwtStrategy = new Strategy(jwtConfig, async function(jwt_payload, done) {

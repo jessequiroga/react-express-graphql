@@ -22,7 +22,7 @@ class Header extends Component {
                         <Button variant="contained"
                                 color="default"
                                 startIcon={<ExitToAppIcon/>}>
-                            Login
+                            Sign in
                         </Button>
                     </Link>
                 </Container>

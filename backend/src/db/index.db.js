@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const env = require('../../utils/configs/env.config');
+const env = require('../utils/configs/env.config');
 
 const connectionURL = `mongodb://${env.db.host}:${env.db.port}/${env.db.name}`;
 mongoose.set('useCreateIndex', true);

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const env = require('../../utils/configs/env.config');
+const env = require('../utils/configs/env.config');
 
 
 class JwtService {
