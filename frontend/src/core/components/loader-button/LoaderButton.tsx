@@ -3,14 +3,15 @@ import React from 'react';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 interface IProps {
-    type?: string;
+    type?: 'button' | 'submit' | 'reset';
     isLoading?: boolean;
     value: string;
+    classes?: {[key: string]: string};
 }
 
 export const LoaderButton: React.FC<IProps> = (props) => {
     return (
-        <Button variant="contained" color="primary">
+        <Button type={props.type} classes={props.classes} variant="contained" color="primary">
             { props.isLoading ?
                 <CircularProgress /> : props.value
             }

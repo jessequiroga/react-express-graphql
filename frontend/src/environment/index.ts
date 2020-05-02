@@ -1,6 +1,6 @@
 import dev from './environment.dev';
 import prod from './environment.prod';
-import { IEnvironment } from '../core/interfaces/environment.interface';
+import { IEnvironment } from '../shared/interfaces/environment.interface';
 
 const DEFAULT_ENV = 'dev';
 const env = process.env.REACT_APP_ENVIRONMENT || DEFAULT_ENV;

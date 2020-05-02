@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from 'axios';
 import Cookie from 'js-cookie';
-import { Cookies } from '../enums/cookie.enum';
+import { Cookies } from '../../shared/enums/cookie.enum';
 
 export function addJwtToRequest(config: AxiosRequestConfig): AxiosRequestConfig {
     const jwt = Cookie.get(Cookies.Jwt);

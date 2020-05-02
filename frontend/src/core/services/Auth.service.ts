@@ -1,7 +1,7 @@
 import AuthApi from '../../backend/api/Auth.api';
 import { ISignInRequest } from '../../backend/interfaces/sign-in.interface';
 import Cookie from 'js-cookie';
-import { Cookies } from '../enums/cookie.enum';
+import { Cookies } from '../../shared/enums/cookie.enum';
 
 export class AuthService {
 
