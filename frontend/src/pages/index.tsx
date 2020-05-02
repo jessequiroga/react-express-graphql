@@ -1,27 +1,25 @@
-import React, { lazy, Suspense } from 'react';
+import { Switch, BrowserRouter } from 'react-router-dom'
+import React from 'react'
+import { routesConfig, ROUTES } from './config'
+import RouteWithSubRoutes from './route-with-sub-routes';
 import Loader from '../core/components/loader/Loader';
-import { Route } from 'react-router-dom';
-import { IRoute } from '../core/interfaces/route.interface';
+import RoutePrivate from './route-private';
 
-const routes: IRoute[] = [
-    {
-        path: '/sign-in',
-        exact: true,
-        component: lazy(() => import('./auth/sign-in/SignIn'))
-    },
-];
+const SuspenseFallback = <Loader />
 
-export function AppRouter() {
+export const RenderRoutes: React.FC = () => {
     return (
-        <Suspense fallback={<Loader/>}>
-            {routes.map(route => (
-                <Route
-                    key={route.path}
-                    exact={route.exact}
-                    path={route.path}
-                    component={route.component}
-                />
-            ))}
-        </Suspense>
-    );
+        <BrowserRouter>
+            <React.Suspense fallback={SuspenseFallback}>
+                <Switch>
+                    {routesConfig.map(route => (
+                        <RouteWithSubRoutes key={route.key} {...route} />
+                    ))}
+                </Switch>
+            </React.Suspense>
+        </BrowserRouter>
+    )
 }
+
+export { routesConfig, ROUTES, RoutePrivate, RouteWithSubRoutes }
+export default RenderRoutes

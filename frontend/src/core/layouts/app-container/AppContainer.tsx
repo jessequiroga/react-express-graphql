@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../../components/header/Header';
 import { BrowserRouter as Router, } from 'react-router-dom';
-import { AppRouter } from '../../../pages';
 import styles from './AppContainer.module.scss';
 import { Container } from '@material-ui/core';
+import RenderRoutes from '../../../pages';
 
 class AppContainer extends Component {
     render() {
@@ -12,7 +12,7 @@ class AppContainer extends Component {
                 <div className={styles.appContainer}>
                     <Header/>
                     <Container className={styles.rootContent} maxWidth="lg">
-                        <AppRouter />
+                        <RenderRoutes />
                     </Container>
                 </div>
             </Router>
